@@ -9,6 +9,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 # Rodrigo's comments:
 
+A public deployment of this project is in https://clipboardhealthtest.web.app
+
 As there was no specific definition of what screen actions or buttons should work, I focused on two stages:
 
 - Basic stage:
