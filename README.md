@@ -1,11 +1,23 @@
 ## Available Scripts
 
-In the project directory, you can run:
+Clone this branch:
+
+### `git clone https://github.com/ClipboardHealth/fullstack-candidate-testing/tree/rodrigo-vizcarra-2020-12-02`
+
+later run:
+
+### `npm install`
+
+and finally
 
 ### `npm start`
 
-Runs the app in the development mode and start de Rest Api at the same time.\
+this runs the app in the development mode and start de Rest Api at the same time.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+# Note:
+
+The deployment was done on an AWS EC2 server that I had previously configured for other projects and this was executed using PM2 (process manager).
 
 # Rodrigo's comments:
 
