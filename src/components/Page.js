@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getJobs } from 'actions/jobs.action'
 
-const SORT_FIELDS = [
-    'job_title', 'job_type', 'created'
-]
+const SORT_FIELDS = {
+    'Title': 'job_title',
+    'Type': 'job_type',
+    'Date': 'created'
+}
 
 const JobItem = ({job}) => {
     const [detailOpen, setDetailOpen] = useState(false);
@@ -72,7 +74,8 @@ const IndexPage = () => {
     const { jobs } = state.jobs
     const [ filter, setFilter ] = useState({
         keyword: '',
-        filters: {}
+        filters: {},
+        sort: {}
     });
     let totalJobs = 0;
     jobs.map((jobs) => { totalJobs += jobs.total_jobs_in_hospital });
@@ -121,6 +124,18 @@ const IndexPage = () => {
                 filter.filters['department'] = tmp;
             }
         }
+        setFilter({...filter});
+    }
+
+    const handleSort = (f) => {
+        if (!filter.sort[f]) {
+            filter.sort[f] = 'asc';
+        } else if (filter.sort[f] === 'asc') {
+            filter.sort[f] = 'desc';
+        } else {
+            delete filter.sort[f];
+        }
+        console.log(filter);
         setFilter({...filter});
     }
 
@@ -181,11 +196,13 @@ const IndexPage = () => {
                                     <div className="hidden lg:flex lg:space-x-4 pt-2 lg:flex-row flex-col">
                                         <h4 className="font-semibold text-gray-500 flex-col">Sort by</h4>
                                         <div className="flex lg:pt-0 pt-2 space-x-4 item-start">
-                                            <p className="capitalize cursor-pointer">Location</p>
-                                            <p className="capitalize cursor-pointer">Role</p>
-                                            <p className="capitalize cursor-pointer">Department</p>
-                                            <p className="capitalize cursor-pointer">Education</p>
-                                            <p className="capitalize cursor-pointer">Experience</p>
+                                            { Object.keys(SORT_FIELDS).map(field => {
+                                                return (
+                                                    <p className="capitalize cursor-pointer" onClick={()=>handleSort(SORT_FIELDS[field])}>
+                                                        {`${field} ${filter.sort[SORT_FIELDS[field]] ? `(${filter.sort[SORT_FIELDS[field]]})`:''}`}
+                                                    </p>
+                                                );
+                                            }) }
                                         </div>
                                     </div>
                                 </div>
