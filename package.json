@@ -11,5 +11,10 @@
     "next": "10.0.3",
     "react": "17.0.1",
     "react-dom": "17.0.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.0.4",
+    "@fullhuman/postcss-purgecss": "^3.0.0",
+    "tailwindcss": "^2.0.1"
   }
 }
