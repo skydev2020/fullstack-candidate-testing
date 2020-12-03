@@ -2,24 +2,24 @@
 
 Clone this branch:
 
-### `git clone https://github.com/ClipboardHealth/fullstack-candidate-testing/tree/rodrigo-vizcarra-2020-12-02`
+#### `git clone https://github.com/ClipboardHealth/fullstack-candidate-testing/tree/rodrigo-vizcarra-2020-12-02`
 
 later run:
 
-### `npm install`
+#### `npm install`
 
 and finally
 
-### `npm start`
+#### `npm start`
 
 this runs the app in the development mode and start de Rest Api at the same time.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-# Note:
+## Note:
 
 The deployment was done on an AWS EC2 server that I had previously configured for other projects and this was executed using PM2 (process manager).
 
-# Rodrigo's comments:
+## Rodrigo's comments:
 
 A public deployment of this project is in http://18.236.184.62:5001
 
