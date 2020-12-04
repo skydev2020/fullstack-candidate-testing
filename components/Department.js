@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import Whitebox from "./whitebox";
+import WhiteBox from "./WhiteBox";
 
 const Departaments = props => {
   const title = "DEPARTAMENTS";
@@ -38,7 +38,7 @@ const Departaments = props => {
   };
 
   const getDepartaments = () => {
-    const url = "http://localhost:3000/api/department";
+    const url = `/api/department`;
     fetch(url)
       .then(res => res.json())
       .then(data => {
@@ -51,7 +51,7 @@ const Departaments = props => {
 
   return (
     <div>
-      <Whitebox
+      <WhiteBox
         title={title}
         list={departamentsTop10}
         modaldata={departaments}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 
-const Whitebox = props => {
+const WhiteBox = props => {
   const maxitemslist = 10;
   const title = props.title;
   const list = props.list;
@@ -83,4 +83,4 @@ const Whitebox = props => {
 
 Modal.setAppElement("body");
 
-export default Whitebox;
+export default WhiteBox;

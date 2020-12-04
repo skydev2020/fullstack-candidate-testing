@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import Whitebox from "./whitebox";
+import WhiteBox from "./WhiteBox";
 
 const WorkSchedule = props => {
   const title = "WORK SCHEDULE";
@@ -37,7 +37,7 @@ const WorkSchedule = props => {
   };
 
   const getWorkSchedule = () => {
-    const url = "http://localhost:3000/api/works";
+    const url = `/api/works`;
     fetch(url)
       .then(res => res.json())
       .then(data => {
@@ -48,7 +48,7 @@ const WorkSchedule = props => {
   useEffect(getWorkSchedule, []);
 
   return (
-    <Whitebox
+    <WhiteBox
       title={title}
       list={workschedule}
       modaldata={[]}

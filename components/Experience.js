@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import Whitebox from "./whitebox";
+import WhiteBox from "./WhiteBox";
 
 const Experience = props => {
   const title = "EXPERIENCE";
@@ -37,7 +37,7 @@ const Experience = props => {
   };
 
   const getExperiences = () => {
-    const url = "http://localhost:3000/api/experience";
+    const url = `/api/experience`;
     fetch(url)
       .then(res => res.json())
       .then(data => {
@@ -48,7 +48,7 @@ const Experience = props => {
   useEffect(getExperiences, []);
 
   return (
-    <Whitebox
+    <WhiteBox
       title={title}
       list={experience}
       modaldata={[]}

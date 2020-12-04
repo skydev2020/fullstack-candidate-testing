@@ -9,7 +9,7 @@ const Content = props => {
   const setJobs = props.setJobs;
 
   const getAllJobs = () => {
-    const url = "http://localhost:3000/api/jobs";
+    const url = `/api/jobs`;
     fetch(url)
       .then(res => res.json())
       .then(data => {

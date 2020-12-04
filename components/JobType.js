@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import Whitebox from "./whitebox";
+import WhiteBox from "./WhiteBox";
 
 const Jobtype = props => {
   const title = "JOB TYPE";
@@ -11,7 +11,9 @@ const Jobtype = props => {
   const [jobtype, setJobType] = useState([]);
 
   const getJobType = () => {
-    const url = "http://localhost:3000/api/jobtypes"; 
+    const url = `/api/jobtypes`; 
+    // const url = "/api/jobtypes"; 
+
     fetch(url)
       .then(res => res.json())
       .then(data => {
@@ -47,7 +49,7 @@ const Jobtype = props => {
   useEffect(getJobType, []);
 
   return (
-    <Whitebox
+    <WhiteBox
       title={title}
       list={jobtype}
       modaldata={[]}

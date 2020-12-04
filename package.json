@@ -10,11 +10,6 @@
     "format": "prettier --write \"**/*.{js}\"",
     "test": "jest"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "dependencies": {
     "@babel/preset-env": "^7.12.7",
     "@material-ui/core": "^4.11.0",
@@ -23,7 +18,7 @@
     "bootstrap": "^4.5.3",
     "font-awesome": "^4.7.0",
     "isomorphic-unfetch": "^3.1.0",
-    "next": "latest",
+    "next": "^10.0.3",
     "next-images": "^1.6.2",
     "next-server": "^9.0.5",
     "postcss-easy-import": "^3.0.0",
