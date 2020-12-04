@@ -1,65 +1,46 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import { useSelector, useDispatch } from 'react-redux'
+import { setKeyword } from '../store/jobs.action'
+import { Filters, Jobs } from '../components';
+import api from '../ApiConfig';
 
-export default function Home() {
+const Home = ({filters}) => {
+  const dispatch = useDispatch()
+  const state = useSelector((state) => state)  
+  const { query } = state.jobs
+  
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+    <div>
+      <div className="flex flex-col m-5">
+          <input type="search" className="bg-white shadow border-0 search-input" name="search" placeholder="Search for any job, title, keywords or company" value={query.keyword} onChange={(e)=>dispatch(setKeyword(e.target.value))}/>
+          <div className="search-icon">
+              <svg version="1.1" className="h-4 text-dark" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+              viewBox="0 0 52.966 52.966" style={{enableBackground:"new 0 0 52.966 52.966"}} >
+                  <path d="M51.704,51.273L36.845,35.82c3.79-3.801,6.138-9.041,6.138-14.82c0-11.58-9.42-21-21-21s-21,9.42-21,21s9.42,21,21,21
+                  c5.083,0,9.748-1.817,13.384-4.832l14.895,15.491c0.196,0.205,0.458,0.307,0.721,0.307c0.25,0,0.499-0.093,0.693-0.279
+                  C52.074,52.304,52.086,51.671,51.704,51.273z M21.983,40c-10.477,0-19-8.523-19-19s8.523-19,19-19s19,8.523,19,19
+                  S32.459,40,21.983,40z"/>
+              </svg>
+          </div>
+      </div>
+      <div className="flex sidebarContainer m-5 lg:space-x-4">
+          <Filters filters={filters} />
+          <Jobs />
+      </div>
     </div>
   )
 }
+
+export const getServerSideProps = async () => {
+  let data = await api.get('/api/filters').then(response => {
+    return response.data;
+  });
+  
+  return {
+    props: { 
+      filters: data    
+    }
+  }
+};
+
+export default Home;

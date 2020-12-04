@@ -1,4 +1,4 @@
-# Wang Xin's fullstack-candidate-testing
+# fullstack-candidate-testing
 
 ## Instructions
 
