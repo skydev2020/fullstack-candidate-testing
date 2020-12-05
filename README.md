@@ -1,4 +1,9 @@
-# fullstack-candidate-testing
+# Wang Xin's fullstack-candidate-testing
+
+## Installation
+1. npm install & npm run build
+2. npm start and server is running at port 3000
+3. https://cocky-allen-b360ba.netlify.app
 
 ## Instructions
 
