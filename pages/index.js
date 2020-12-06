@@ -4,7 +4,8 @@ import Footer from '../components/Footer';
 import Header from '../components/Header'
 import SearchInput from '../components/SearchInput';
 import Sidebar from '../components/Sidebar';
-export default function Search(){
+
+export default function Home(){
     return (
         <div className="lg:conatiner mx-auto flex flex-col h-auto justify-between px-10 bg-gray-100">
             <Header /><FilterModal />
@@ -13,7 +14,6 @@ export default function Search(){
                 <Sidebar />
                 <Content />
             </div>
-            
             <Footer />
         </div>
     );
