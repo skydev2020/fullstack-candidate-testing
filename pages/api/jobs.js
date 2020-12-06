@@ -1,5 +1,4 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import Job from '../../components/Job';
 import hospitals from '../../data/jobs';
 
 const hasMatched = (filters, search, job) => {
