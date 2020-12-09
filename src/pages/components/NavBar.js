@@ -25,8 +25,8 @@ export default function NavBar(props) {
             {
               isMobileOrTab &&
               <>
-                <Button variant="outline-primary" className="mr-sm-4">CREATE JOB</Button>
-                <div>LOGOUT</div>
+                <Nav.Link href="#salary" className={styles.navLink}>CREATE JOB</Nav.Link>
+                <Nav.Link href="#salary" className={styles.navLink}>LOGOUT</Nav.Link>
               </>
             }
           </Nav>

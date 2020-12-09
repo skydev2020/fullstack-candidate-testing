@@ -15,6 +15,7 @@ export default function Home() {
   }
 
   useEffect(() => {
+    setIsMobileOrTab(window.innerWidth <= 991);
     window.addEventListener('resize', handleWindowSizeChange);
     return () => {
       window.removeEventListener('resize', handleWindowSizeChange);

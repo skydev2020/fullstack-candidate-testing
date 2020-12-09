@@ -136,7 +136,7 @@ const JobList = ({ filteredList, jobsFilteredData, sortJobData, isMobileOrTab })
                           </Card.Header>
                           <Accordion.Collapse eventKey={pIndex + index + 1}>
                             <Card.Body>
-                              <div className={styles.accordionCardBody}>
+                              <div className={`${styles.accordionCardBody} ${isMobileOrTab ? 'flex-column' : ''}`}>
                                 <div className={styles.width80}>
                                   <div className="d-flex justify-content-around">
                                     <b>Department:</b>
